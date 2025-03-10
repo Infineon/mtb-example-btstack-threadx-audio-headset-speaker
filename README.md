@@ -183,6 +183,7 @@ Button event: click/ long press/ hold<br/>
 
 3. For A2DP/SNK/CC/BV-03-I and A2DP/SNK/CC/BV-04-I test cases, 16Khz and 32Khz sampling rate will be supported by defining ENABLE\_PTS\_TESTING flag
 
+    
 ## Debugging
 
 You can debug the example to step through the code. In the IDE, use the **\<Application Name> Debug (KitProg3_MiniProg4)** configuration in the **Quick Panel**. For more details, see the "Program and debug" section in the [Eclipse IDE for ModusToolbox&trade; software user guide](https://www.infineon.com/dgdl/Infineon-Eclipse_IDE_for_ModusToolbox_User_Guide_1-UserManual-v01_00-EN.pdf?fileId=8ac78c8c7d718a49017d99bcb86331e8).
@@ -273,6 +274,7 @@ Document title: *CE239135* - *Bluetooth&reg; headset-speaker*
  ------- | ---------------------
  0.1.0   | New code example
  1.0.0   | First release version
+ 1.0.1   | Update library HAL to 1.2.0 and btsdk-audio to 4.9.1
 <br>
 
 

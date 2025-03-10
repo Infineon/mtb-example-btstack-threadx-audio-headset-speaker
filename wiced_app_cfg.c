@@ -7,7 +7,7 @@
 *
 *
 *******************************************************************************
-* Copyright 2021-2024, Cypress Semiconductor Corporation (an Infineon company) or
+* Copyright 2021-2025, Cypress Semiconductor Corporation (an Infineon company) or
 * an affiliate of Cypress Semiconductor Corporation.  All rights reserved.
 *
 * This software, including source code, documentation and related
@@ -42,7 +42,7 @@
 /*******************************************************************************
 * Header Files
 *******************************************************************************/
-#include "bt_hs_spk_handsfree.h"
+#include <bt_hs_spk_handsfree.h>
 #include "wiced_app_cfg.h"
 #include "wiced_bt_avdt.h"
 #include "wiced_bt_avrc.h"

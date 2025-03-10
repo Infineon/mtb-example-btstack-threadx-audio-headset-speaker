@@ -8,7 +8,7 @@
 *
 *
 *******************************************************************************
-* Copyright 2021-2024, Cypress Semiconductor Corporation (an Infineon company) or
+* Copyright 2021-2025, Cypress Semiconductor Corporation (an Infineon company) or
 * an affiliate of Cypress Semiconductor Corporation.  All rights reserved.
 *
 * This software, including source code, documentation and related
@@ -43,9 +43,9 @@
 /*******************************************************************************
 * Header Files
 *******************************************************************************/
+#include <bt_hs_spk_control.h>
 #include <stdint.h>
 
-#include "bt_hs_spk_control.h"
 #include "headset_control_le.h"
 #include "wiced.h"
 #include "wiced_app_cfg.h"

@@ -8,7 +8,7 @@
 *
 *
 *******************************************************************************
-* Copyright 2021-2024, Cypress Semiconductor Corporation (an Infineon company) or
+* Copyright 2021-2025, Cypress Semiconductor Corporation (an Infineon company) or
 * an affiliate of Cypress Semiconductor Corporation.  All rights reserved.
 *
 * This software, including source code, documentation and related
@@ -51,6 +51,7 @@
 #include "wiced_transport.h"
 #include "wiced_hal_puart.h"
 #include "hci_control_api.h"
+#include "wiced_sleep.h"
 #endif
 
 /*******************************************************************************
@@ -117,9 +118,12 @@ static uint32_t classic_audio_rpc_rx_callback(uint8_t *p_buffer, uint32_t length
     uint16_t opcode;
     int payload_len = 0;
     uint8_t *p_data = p_buffer;
-
+    //print
+    WICED_BT_TRACE( "# Mapx  Length = %d#\n",length);
     if (!p_buffer)
     {
+	//print
+	WICED_BT_TRACE( "# Mapx  Length = %d#\n",length);
         return HCI_CONTROL_STATUS_INVALID_ARGS;
     }
 
@@ -128,11 +132,14 @@ static uint32_t classic_audio_rpc_rx_callback(uint8_t *p_buffer, uint32_t length
     {
         WICED_BT_TRACE("invalid params\n");
         wiced_transport_free_buffer(p_buffer);
+        //print
         return HCI_CONTROL_STATUS_INVALID_ARGS;
     }
 
     STREAM_TO_UINT16(opcode, p_data);      // Get OpCode
     STREAM_TO_UINT16(payload_len, p_data); // Gen Payload Length
+    //print mapx
+    WICED_BT_TRACE( "# Mapx  opcode = %d #\n",opcode);
 
     if (g_rpc_app_callback) g_rpc_app_callback(opcode, p_data, payload_len);
 
@@ -142,6 +149,12 @@ static uint32_t classic_audio_rpc_rx_callback(uint8_t *p_buffer, uint32_t length
 
 void wiced_hci_trace_enable(void)
 {
+    /* Initialize g_rpc_app_callback with NULL or headset_rpc_rx_callback */
+	#ifdef INTERNAL_TESTING 
+    g_rpc_app_callback = headset_rpc_rx_callback;// headset_rpc_rx_callback test_rpc_rx_callback
+	#endif
+
+    /* Initialize WICED HCI transport to communicate with Client Control */
     wiced_transport_init(&transport_cfg);
     wiced_set_debug_uart(WICED_ROUTE_DEBUG_TO_WICED_UART);
 
@@ -173,6 +186,7 @@ int main(void)
     {
         CY_ASSERT(0);
     }
+    cyhal_syspm_lock_deepsleep();
 
     /* Enable global interrupts */
     __enable_irq();

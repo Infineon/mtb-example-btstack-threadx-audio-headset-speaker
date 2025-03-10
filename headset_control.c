@@ -7,7 +7,7 @@
 *
 *
 *******************************************************************************
-* Copyright 2021-2024, Cypress Semiconductor Corporation (an Infineon company) or
+* Copyright 2021-2025, Cypress Semiconductor Corporation (an Infineon company) or
 * an affiliate of Cypress Semiconductor Corporation.  All rights reserved.
 *
 * This software, including source code, documentation and related
@@ -42,10 +42,10 @@
 /*******************************************************************************
 * Header Files
 *******************************************************************************/
+#include <bt_hs_spk_control.h>
+#include <bt_hs_spk_handsfree.h>
 #include <stdint.h>
 
-#include "bt_hs_spk_control.h"
-#include "bt_hs_spk_handsfree.h"
 #include "headset_control.h"
 #include "headset_control_le.h"
 #include "headset_nvram.h"
@@ -274,6 +274,9 @@ static wiced_result_t btheadset_control_management_callback( wiced_bt_management
         {
             pairing_result = p_pairing_cmpl->pairing_complete_info.br_edr.status;
             WICED_BT_TRACE("BREDR Pairing Result: %02x\n", pairing_result);
+			#ifdef INTERNAL_TESTING 
+                test_hci_send_data(HCI_CONTROL_EVENT_PAIRING_COMPLETE, &pairing_result, sizeof(pairing_result));
+			#endif
         }
         else
         {
