@@ -7,8 +7,8 @@
 #
 ################################################################################
 # \copyright
-# Copyright 2018-2025, Cypress Semiconductor Corporation (an Infineon company)
-# SPDX-License-Identifier: Apache-2.0
+# (c) 2018-2026, Infineon Technologies AG, or an affiliate of Infineon
+# Technologies AG.  SPDX-License-Identifier: Apache-2.0
 # 
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -228,6 +228,10 @@ endif
 CY_APP_DEFINES+=-DCODEC_SPI_DIRECT_ENABLE   # enable SPI when A2DP/HFP command is received
 
 CY_APP_DEFINES+=-DHCI_TRACE_OVER_TRANSPORT
+
+# Irrespective of CYHAL_SLEEP_SUPPORT flag, default sleep will be enabled for CYW955513EVK-01 and KIT-CYW55310-EVAL internally.
+# So, enable the below flag for sleep disabled as well.
+CY_APP_DEFINES += -DCYHAL_SYSPM_WITH_TRANSPORT_MODE
 
 # Locate ModusToolbox helper tools folders in default installation
 # locations for Windows, Linux, and macOS.
