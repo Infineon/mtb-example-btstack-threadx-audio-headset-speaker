@@ -87,7 +87,7 @@ VERBOSE=
 #
 COMPONENTS=THREADX a2dp_sink_profile_btstack audiomanager audio_sink_route_config_lib \
            avrc_controller_btstack btsdk-include bt_hs_spk_lib button_manager \
-           cyw9bt_audio5 handsfree_profile_btstack
+           cyw9bt_audio5 handsfree_profile_btstack profiles_include_btstack a2dp_common_btstack
 
 # Like COMPONENTS, but disable optional code that was enabled by default.
 DISABLE_COMPONENTS=

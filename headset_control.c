@@ -450,7 +450,7 @@ static wiced_result_t btheadset_post_bt_init(void)
 #else
     config.discoverable_timeout             = 240;  /* 240 Sec */
 #endif
-    config.acl3mbpsPacketSupport            = WICED_TRUE;
+    config.acl3mbpsPacketSupport            = WICED_FALSE;
     config.audio.a2dp.p_audio_config        = &bt_audio_config;
     config.audio.a2dp.p_pre_handler         = NULL;
     config.audio.a2dp.post_handler          = NULL;

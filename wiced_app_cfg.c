@@ -249,7 +249,7 @@ const uint8_t btheadset_sdp_db[] =
             SDP_ATTR_SEQUENCE_1(8),
                 SDP_ATTR_SEQUENCE_1(6),
                     SDP_ATTR_UUID16(UUID_SERVCLASS_ADV_AUDIO_DISTRIBUTION),
-                    SDP_ATTR_VALUE_UINT2(AVDT_VERSION_1_3),
+                    SDP_ATTR_VALUE_UINT2(0x0104),
         SDP_ATTR_UINT2(ATTR_ID_SUPPORTED_FEATURES, 0x000B),
         SDP_ATTR_SERVICE_NAME(16),
         'W', 'I', 'C', 'E', 'D', ' ', 'A', 'u', 'd', 'i', 'o', ' ', 'S', 'i', 'n', 'k',
@@ -270,7 +270,7 @@ const uint8_t btheadset_sdp_db[] =
         SDP_ATTR_ID(ATTR_ID_BT_PROFILE_DESC_LIST), SDP_ATTR_SEQUENCE_1(8),
             SDP_ATTR_SEQUENCE_1(6),
                 SDP_ATTR_UUID16(UUID_SERVCLASS_AV_REMOTE_CONTROL),
-                SDP_ATTR_VALUE_UINT2(AVRC_REV_1_5),
+                SDP_ATTR_VALUE_UINT2(0x0106),
         SDP_ATTR_UINT2(ATTR_ID_SUPPORTED_FEATURES, AVRC_SUPF_TG_CAT2),
 
     // SDP Record for AVRC Controller
@@ -290,7 +290,7 @@ const uint8_t btheadset_sdp_db[] =
         SDP_ATTR_ID(ATTR_ID_BT_PROFILE_DESC_LIST), SDP_ATTR_SEQUENCE_1(8),
             SDP_ATTR_SEQUENCE_1(6),
                 SDP_ATTR_UUID16(UUID_SERVCLASS_AV_REMOTE_CONTROL),
-                SDP_ATTR_VALUE_UINT2(AVRC_REV_1_3),
+                SDP_ATTR_VALUE_UINT2(0x0106),
         SDP_ATTR_UINT2(ATTR_ID_SUPPORTED_FEATURES, AVRC_SUPF_CT_CAT1),
 
         // SDP Record for Hands-Free Unit
@@ -303,7 +303,7 @@ const uint8_t btheadset_sdp_db[] =
                 SDP_ATTR_ID(ATTR_ID_BT_PROFILE_DESC_LIST), SDP_ATTR_SEQUENCE_1(8),
                     SDP_ATTR_SEQUENCE_1(6),
                         SDP_ATTR_UUID16(UUID_SERVCLASS_HF_HANDSFREE),
-                        SDP_ATTR_VALUE_UINT2(0x0107),
+                        SDP_ATTR_VALUE_UINT2(0x0109),
                 SDP_ATTR_SERVICE_NAME(15),
                     'W', 'I', 'C', 'E', 'D', ' ', 'H', 'F', ' ', 'D', 'E', 'V', 'I', 'C', 'E',
                 SDP_ATTR_UINT2(ATTR_ID_SUPPORTED_FEATURES, WICED_APP_CFG_SDP_HFP_FEATURE),
@@ -362,7 +362,8 @@ wiced_bt_a2dp_codec_info_t bt_audio_codec_capabilities[] =
                     (A2D_M24_IE_SAMP_FREQ_44 | A2D_M24_IE_SAMP_FREQ_48),    /*samp_freq */
                     (A2D_M24_IE_CHNL_MSK),                                  /* chnl */
                     (A2D_M24_IE_VBR_MSK),                                   /* b7: VBR */
-                    (A2D_M24_IE_BITRATE_MSK)                                /* bitrate - b7-b0 of octect 3, all of octect4, 5*/
+                    (A2D_M24_IE_BITRATE_MSK),                               /* bitrate - b7-b0 of octect 3, all of octect4, 5*/
+                    (WICED_TRUE)                                            /* drc */
                 }
         }
 #endif

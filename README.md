@@ -283,6 +283,8 @@ Document title: *CE239135* - *Bluetooth&reg; headset-speaker*
  1.0.0   | First release version
  1.0.1   | Update library HAL to 1.2.0 and btsdk-audio to 4.9.1
  1.1.0   | Support Added for KIT-CYW55310-EVAL Kit
+ 1.2.0   | Audio profiles update
+
 <br>
 
 
